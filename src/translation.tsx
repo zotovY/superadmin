@@ -1,8 +1,8 @@
 
 export const requests = {
-    request: "Requests",
-    add: "Add",
-    popularity: "Popularity",
+    request: "Запросы Ставь Врачём",
+    add: "Добавить",
+    popularity: "Популярность",
     name: "Имя",
     surname: "Фамилия",
     phone: "Телефон",
@@ -23,3 +23,12 @@ export const requests = {
     remove: "Удалить",
 }
 
+export const login = {
+    adminPanel: "Admin Panel",
+    username: "Username",
+    password: "Пароль",
+    login: "Войти",
+    alreadyLogIn: "Вы уже вошли как ",
+    logout: "Выйти",
+    goBack: "Вернуться назад",
+}

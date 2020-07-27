@@ -6,7 +6,7 @@ import { requests } from "../../../translation";
 import store from "../store";
 import { Chevron, BookmarkIcon } from "../icons";
 
-enum BecomeDoctorFields {
+export enum BecomeDoctorFields {
     name = "name",
     surname = "surname",
     phone = "phone",
@@ -54,11 +54,11 @@ const Item: React.FC<Props> = (props) => {
 
     // console.log(store.requests[props.i].issueDate);
 
-    if (typeof store.requests[props.i].issueDate === 'string') {
-        if (store.requests[props.i].issueDate?.toString().length ?? 1 >= 12) {
-            store.requests[props.i].issueDate = formatDate(new Date(store.requests[props.i].issueDate ?? ""));
-        }
-    }
+    // if (typeof store.requests[props.i].issueDate === 'string') {
+    //     if (store.requests[props.i].issueDate?.toString().length ?? 1 >= 12) {
+    //         store.requests[props.i].issueDate = formatDate(new Date(store.requests[props.i].issueDate ?? ""));
+    //     }
+    // }
 
 
 

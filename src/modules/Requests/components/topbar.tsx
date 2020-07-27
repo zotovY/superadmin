@@ -1,5 +1,7 @@
 import React from "react";
+import { observer } from "mobx-react";
 import { requests as t } from "../../../translation";
+import store from "../store";
 
 import "../routes.scss"
 // import { ReactComponent as RefreshIcon } from '../images/refresh.svg';
@@ -21,10 +23,10 @@ const Topbar: React.FC = () => {
                     <RefreshIcon />
                 </button>
                 <div className="divider" />
-                <button className="square active" id="list">
+                <button className={`square ${store.isListView ? "active" : ""}`} id="list" onClick={() => store.setIsListView(true)}>
                     <ListIcon />
                 </button>
-                <button className="square" id="grid">
+                <button className={`square ${!store.isListView ? "active" : ""}`} id="grid" onClick={() => store.setIsListView(false)}>
                     <GridIcon />
                 </button>
                 <button className="wide" id="popularity">
@@ -42,4 +44,4 @@ const Topbar: React.FC = () => {
     </section>
 }
 
-export default Topbar;
+export default observer(Topbar);

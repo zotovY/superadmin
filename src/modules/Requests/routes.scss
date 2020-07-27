@@ -116,9 +116,75 @@ section#topbar {
 }
 
 //──── List ──────────────────────────────────────────────────────────────────────────────
+
+.index {
+    width: 2.5vw;
+    height: 2.5vw;
+    border-radius: 7px;
+    background: $disable;
+    color: $primary;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 18px;
+}
+
+.short {
+    height: 2.5vw;
+    display: flex;
+    align-items: center;
+    font-size: 22px;
+    font-weight: 500;
+}
+
+@mixin button {
+    height: 36px;
+    padding: 0 15px;
+    border-radius: 7px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    font-size: 16px;
+    margin-left: 15px;
+    transition: 200ms;
+
+
+}
+
+@mixin buttons {
+    display: flex;
+    justify-content: flex-end;
+
+    button {
+        @include button();
+    }
+
+    button#submit {
+        background: $primary;
+        color: white;
+    }
+
+    button#remove {
+        background: $disable;
+        color: $primary;
+    }
+}
+
+button#bookmark {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 11px;
+    width: 36px;
+    background: $disable;
+}
+
+
+
 .list {
     max-height: calc(100vh - 77px);
     overflow-y: auto;
+    overflow-x: hidden;
 }
 
 .item {
@@ -127,17 +193,7 @@ section#topbar {
     align-items: flex-start;
     width: 100%;
 
-    .index {
-        width: 2.5vw;
-        height: 2.5vw;
-        border-radius: 7px;
-        background: $disable;
-        color: $primary;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        font-size: 18px;
-    }
+
 
     .content {
         display: flex;
@@ -146,16 +202,10 @@ section#topbar {
         margin-left: 20px;
         overflow: hidden;
 
-        .short {
-            height: 2.5vw;
-            display: flex;
-            align-items: center;
-            font-size: 22px;
-            font-weight: 500;
-        }
+
 
         .collapsed {
-            transition: 200ms;
+            transition: 300ms ease;
             max-height: 0px;
 
             &.open {
@@ -190,16 +240,7 @@ section#topbar {
             justify-content: flex-end;
 
             button {
-                height: 36px;
-                padding: 0 15px;
-                border-radius: 7px;
-                border: none;
-                outline: none;
-                cursor: pointer;
-                font-size: 16px;
-                margin-left: 15px;
-                transition: 200ms;
-
+                @include button();
             }
 
             button#submit {
@@ -212,13 +253,7 @@ section#topbar {
                 color: $primary;
             }
 
-            button#bookmark {
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                padding: 0 11px;
-                width: 36px;
-            }
+
         }
     }
 
@@ -239,5 +274,70 @@ section#topbar {
         &.open {
             transform: rotate(90deg);
         }
+    }
+}
+
+//──── Grid ──────────────────────────────────────────────────────────────────────────────
+.grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    max-height: calc(100vh - 70px);
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.card {
+    margin: 20px 0;
+    padding: 10px;
+    background: white;
+    max-width: 90%;
+    border-radius: 10px;
+
+    button {
+        @include button();
+    }
+
+    .uprow {
+        display: flex;
+        justify-content: space-between;
+        flex-direction: row;
+
+        .left {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+
+            .short {
+                margin-left: 10px;
+            }
+        }
+    }
+
+    .info {
+        display: flex;
+        flex-direction: column;
+
+
+        .row {
+            margin: 7px 0;
+            // box-shadow: 0 1px 0 #ccc;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+
+            .field {
+                font-weight: 500;
+            }
+
+            .value {
+                text-align: end;
+            }
+        }
+
+    }
+
+    .buttons {
+        margin-top: 10px;
+        @include buttons();
     }
 }
