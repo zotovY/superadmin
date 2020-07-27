@@ -1,0 +1,119 @@
+//========================================================================================
+/*                                                                                      *
+ *                                       SETTINGS                                       *
+ *                                                                                      */
+//========================================================================================
+
+$primary: #0a84ff;
+$disable: rgba($primary, $alpha: 0.15);
+
+//========================================================================================
+/*                                                                                      *
+ *                                        GLOBALS                                       *
+ *                                                                                      */
+//========================================================================================
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* width */
+::-webkit-scrollbar {
+    width: 3px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: $disable;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: $primary;
+}
+
+body {
+    background: #fafafa;
+    font-family: "Inter", Arial, Helvetica, sans-serif;
+    box-sizing: border-box;
+}
+
+.view {
+    width: calc(95vw - 40px);
+    position: fixed;
+    top: 10px;
+    left: calc(30px + 5vw);
+}
+
+
+
+//========================================================================================
+/*                                                                                      *
+ *                                     LEFT SIDE BAR                                    *
+ *                                                                                      */
+//========================================================================================
+
+.leftside_bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: $primary;
+    width: 5vw;
+    margin: 10px;
+    border-radius: 12px;
+    height: calc(100vh - 20px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+
+    .app-logo {
+        background: white;
+        border-radius: 10px;
+        width: 3.5vw;
+        height: 3.5vw;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        box-shadow: 0 3px 6px rgba($color: #000000, $alpha: 0.02);
+
+        img {
+            width: 2.75vw;
+        }
+    }
+
+    .divider {
+        width: 100%;
+        height: 1px;
+        background: rgba($color: white, $alpha: 0.5);
+        margin-top: 15px;
+    }
+
+    .tab {
+        margin: 10px 0;
+        width: 3vw;
+        height: 3vw;
+        border-radius: 7px;
+        cursor: pointer;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transition: background 0.3s;
+
+        &:hover {
+            background: rgba($color: white, $alpha: 0.15);
+        }
+
+        img {
+            width: 2.2vw;
+        }
+    }
+}

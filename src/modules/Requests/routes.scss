@@ -1,0 +1,243 @@
+@import "../../index.scss";
+
+//──── Topbar ────────────────────────────────────────────────────────────────────────────
+section#topbar {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+
+    .mainRow {
+        display: flex;
+        width: 100%;
+        height: 36px;
+        justify-content: space-between;
+        align-items: flex-end;
+        margin-bottom: 10px;
+
+        .actions {
+            display: flex;
+            justify-content: end;
+            align-items: center;
+            height: 100%;
+
+            button {
+                outline: none;
+                border: none;
+                cursor: pointer;
+                border-radius: 7px;
+                transition: 300ms;
+                margin-left: 10px;
+
+                &:focus {
+                    border: 0.5px solid $primary;
+                    transform: translateY(-1px);
+                }
+            }
+
+            button.square {
+                width: 2.5vw;
+                height: 2.5vw;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                transition: 300ms;
+                background-color: rgba($color: $disable, $alpha: 0.09);
+
+                svg {
+                    fill: $primary;
+                }
+
+                &:hover {
+                    background-color: $disable;
+                }
+
+                &.active {
+                    background-color: $primary;
+
+                    svg {
+                        fill: white;
+                    }
+                }
+            }
+
+            button.wide {
+                height: 100%;
+                padding: 0 17px;
+                background-color: $disable;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+
+                &#add {
+                    background: $primary;
+                    color: white;
+                    box-shadow: 0 5px 12px rgba($color: $primary, $alpha: 0.36);
+
+                    &:hover {
+                        transform: translateY(-2px);
+                    }
+                }
+
+                &#popularity {
+                    background: $disable;
+                    color: $primary;
+                    fill: $primary;
+
+                    &:hover {
+                        transform: translateY(-2px);
+                    }
+                }
+
+                svg {
+                    margin-right: 10px;
+                }
+            }
+
+            .divider {
+                margin-left: 20px;
+                margin-right: 10px;
+                width: 1.5px;
+                height: 75%;
+                background: $disable;
+            }
+        }
+
+        h1 {
+            font-size: 28px;
+            color: #282828;
+        }
+    }
+
+    .underline {
+        width: 100%;
+        height: 1.5px;
+        background: $disable;
+    }
+}
+
+//──── List ──────────────────────────────────────────────────────────────────────────────
+.list {
+    max-height: calc(100vh - 77px);
+    overflow-y: auto;
+}
+
+.item {
+    margin: 15px 0;
+    display: flex;
+    align-items: flex-start;
+    width: 100%;
+
+    .index {
+        width: 2.5vw;
+        height: 2.5vw;
+        border-radius: 7px;
+        background: $disable;
+        color: $primary;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 18px;
+    }
+
+    .content {
+        display: flex;
+        flex-direction: column;
+        width: calc(100% - 60px - 2.5vw);
+        margin-left: 20px;
+        overflow: hidden;
+
+        .short {
+            height: 2.5vw;
+            display: flex;
+            align-items: center;
+            font-size: 22px;
+            font-weight: 500;
+        }
+
+        .collapsed {
+            transition: 200ms;
+            max-height: 0px;
+
+            &.open {
+                max-height: 100vh;
+            }
+        }
+
+        .info {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+
+            .column {
+                width: calc(50% - 20px);
+
+                .row {
+                    margin: 7px 0;
+                    // box-shadow: 0 1px 0 #ccc;
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: space-between;
+
+                    .field {
+                        font-weight: 500;
+                    }
+                }
+            }
+        }
+
+        .buttons {
+            display: flex;
+            justify-content: flex-end;
+
+            button {
+                height: 36px;
+                padding: 0 15px;
+                border-radius: 7px;
+                border: none;
+                outline: none;
+                cursor: pointer;
+                font-size: 16px;
+                margin-left: 15px;
+                transition: 200ms;
+
+            }
+
+            button#submit {
+                background: $primary;
+                color: white;
+            }
+
+            button#remove {
+                background: $disable;
+                color: $primary;
+            }
+
+            button#bookmark {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                padding: 0 11px;
+                width: 36px;
+            }
+        }
+    }
+
+    button#collapse {
+        margin-left: 20px;
+        background: none;
+        border: none;
+        height: 30px;
+        width: 30px;
+        transition: 300ms;
+        cursor: pointer;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        outline: none;
+        transform: rotate(0deg);
+
+        &.open {
+            transform: rotate(90deg);
+        }
+    }
+}

@@ -1,0 +1,25 @@
+
+export const requests = {
+    request: "Requests",
+    add: "Add",
+    popularity: "Popularity",
+    name: "Имя",
+    surname: "Фамилия",
+    phone: "Телефон",
+    email: "Email",
+    password: "Пароль",
+    education: "Образование",
+    speciality: "Специальность",
+    yearEducation: "Годы обучения",
+    blankSeries: "Серия бланка диплома",
+    blankNumber: "Номер бланка диплома",
+    issueDate: "Дата выдачи диплома",
+    passportIssuedByWhom: "Кем выдан пасспорт",
+    passportSeries: "Серия паспорта",
+    passportIssueDate: "Дата выдачи паспорта",
+    workExperience: "Опыт работы",
+    workPlaces: "Место работы",
+    submit: "Назначить доктором",
+    remove: "Удалить",
+}
+
