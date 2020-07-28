@@ -4,9 +4,10 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import ProtectedRoute from 'react-protected-route-component'
 import App from "./App";
 import Login from "./modules/Login/Login";
+import history from "./history";
 
 ReactDOM.render(
-    <Router>
+    <Router >
         <Switch>
             <ProtectedRoute path="/admin" redirectRoute="/admin-login" guardFunction={() => {
                 const token = localStorage.getItem('uid');
